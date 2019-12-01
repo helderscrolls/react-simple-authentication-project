@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import "./Register.css";
+import './Register.css';
 
 import {
   Button,
@@ -10,19 +10,23 @@ import {
   Header,
   Message,
   Segment,
-  Container
-} from "semantic-ui-react";
+  Container,
+} from 'semantic-ui-react';
 
 class Register extends Component {
-  state = {
-    username: "",
-    usernameError: false,
-    email: "",
-    emailError: false,
-    password: "",
-    passwordError: false,
-    formError: false
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      username: '',
+      usernameError: false,
+      email: '',
+      emailError: false,
+      password: '',
+      passwordError: false,
+      formError: false,
+    };
+  }
 
   onChange = e => {
     const { name, value } = e.target;
@@ -37,12 +41,12 @@ class Register extends Component {
     const { username, email, password } = this.state;
 
     const emailIsValid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(
-      email
+      email,
     );
 
     let error = false;
 
-    if (username === "") {
+    if (username === '') {
       this.setState({ usernameError: true });
       error = true;
     } else {
@@ -69,9 +73,9 @@ class Register extends Component {
     }
 
     this.setState({ formError: false });
-    console.log("Form submitted: ", this.state);
+    console.log('Form submitted: ', this.state);
 
-    this.setState({ username: "", email: "", password: "" });
+    this.setState({ username: '', email: '', password: '' });
   };
 
   render() {
@@ -82,21 +86,21 @@ class Register extends Component {
       usernameError,
       emailError,
       passwordError,
-      formError
+      formError,
     } = this.state;
 
     const errorList = [];
 
     if (usernameError) {
-      errorList.push("Username is required");
+      errorList.push('Username is required');
     }
 
     if (emailError) {
-      errorList.push("Email must be valid");
+      errorList.push('Email must be valid');
     }
 
     if (passwordError) {
-      errorList.push("Password must be 8 characters long");
+      errorList.push('Password must be 8 characters long');
     }
 
     return (
@@ -164,7 +168,7 @@ class Register extends Component {
             </Segment>
 
             <Message>
-              Already have an account?{" "}
+              Already have an account?{' '}
               <Link className="link" to="/login">
                 Sign In
               </Link>

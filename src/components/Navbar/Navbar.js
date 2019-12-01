@@ -1,11 +1,15 @@
-import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
-import { Container, Image, Menu } from "semantic-ui-react";
+import React, { Component } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import { Container, Image, Menu } from 'semantic-ui-react';
 
 class Navbar extends Component {
-  state = {
-    isLoggedIn: false
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoggedIn: false,
+    };
+  }
 
   render() {
     const { isLoggedIn } = this.state;

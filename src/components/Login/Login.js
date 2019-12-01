@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import "./Login.css";
+import './Login.css';
 
 import {
   Button,
@@ -10,17 +10,21 @@ import {
   Header,
   Message,
   Segment,
-  Container
-} from "semantic-ui-react";
+  Container,
+} from 'semantic-ui-react';
 
 class Login extends Component {
-  state = {
-    email: "",
-    emailError: false,
-    password: "",
-    passwordError: false,
-    formError: false
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+      emailError: false,
+      password: '',
+      passwordError: false,
+      formError: false,
+    };
+  }
 
   onChange = e => {
     const { name, value } = e.target;
@@ -32,7 +36,7 @@ class Login extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    console.log("Form submitted: ", this.state);
+    console.log('Form submitted: ', this.state);
   };
 
   render() {
@@ -41,7 +45,7 @@ class Login extends Component {
       password,
       emailError,
       passwordError,
-      formError
+      formError,
     } = this.state;
 
     return (
@@ -99,7 +103,7 @@ class Login extends Component {
             </Segment>
 
             <Message>
-              Not registered yet?{" "}
+              Not registered yet?{' '}
               <Link className="link" to="/register">
                 Sign Up
               </Link>
